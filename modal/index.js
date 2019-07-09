@@ -15,21 +15,21 @@ class Modal {
     // Add event listener to button, toggleElement:
     this.toggleElement.addEventListener('click', this.clicked.bind(this));
 
-    // Hint: Get any needed data attributes from the `toggleElement`
-    // Remember your "this." syntax
+    // Get close buttons:
+    this.close = document.querySelectorAll('.close, .btn-secondary')
+    // console.log(this.close);
+
+    this.close[0].addEventListener('click', this.closeModal.bind(this));
+    this.close[1].addEventListener('click', this.closeModal.bind(this));
   }
   clicked(){
     // alert('clicked?!');
     this.modal.style="display: block; padding-right: 16px;"
-    const outsideModal = document.querySelector(`:not(${this.target})`)
-    outsideModal.style="border: 1px solid red";
-    outsideModal.addEventListener('click', function clickOut(event){
-      console.log('click');
-      // const modalAgain = document.querySelector(`${this.target}`)
-      document.querySelector(`${this.target}`).style="display: none;"
-      event.stopPropagation();
-    });
   }
+  closeModal(){
+    this.modal.style="none;"
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
