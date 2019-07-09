@@ -3,9 +3,33 @@ class Modal {
   // You may create additional Classes if you feel it improves readability & reuse.
   constructor(toggleElement) {
     console.log("Modal.constructor toggleElement:", toggleElement); //
-    // Hint: Get any needed data attributes from the `toggleElement`
-    // Remember your "this." syntax
+    this.toggleElement = toggleElement;
+
+    // Get the target's ID:
+    this.target = this.toggleElement.dataset.target;
+    // console.log(this.target);
+
+    // Get the target by ID:
+    this.modal = document.querySelector(`${this.target}`);
+
+    // Add event listener to button, toggleElement:
+    this.toggleElement.addEventListener('click', this.clicked.bind(this));
+
+    // Get close buttons:
+    this.close = document.querySelectorAll('.close, .btn-secondary')
+    // console.log(this.close);
+
+    this.close[0].addEventListener('click', this.closeModal.bind(this));
+    this.close[1].addEventListener('click', this.closeModal.bind(this));
   }
+  clicked(){
+    // alert('clicked?!');
+    this.modal.style="display: block; padding-right: 16px;"
+  }
+  closeModal(){
+    this.modal.style="none;"
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,3 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   modalToggles.forEach(button => new Modal(button));
 });
+
+
+//           style="display: block; padding-right: 16px;"

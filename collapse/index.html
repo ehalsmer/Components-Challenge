@@ -11,6 +11,9 @@
       crossorigin="anonymous"
     />
     <link href="../index.css" rel="stylesheet" />
+    <!-- <script src="./index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
     <title>Build a Collapse Component</title>
   </head>
   <body>
@@ -71,6 +74,7 @@
             class="btn btn-success"
             data-toggle="collapse"
             href="#secretKitten"
+            data-target="#secretKitten"
             role="button"
             aria-expanded="false"
             aria-controls="secretKitten"
@@ -92,7 +96,34 @@
               >View adorbs-as-a-service</a
             >
           </div>
+
+
         </div>
+        <a
+        class="btn btn-success"
+        data-toggle="collapse"
+        href="#secretKitten"
+        data-target="#secretKitten2"
+        role="button"
+        aria-expanded="false"
+        aria-controls="secretKitten2"
+      >
+        Show (Not-So-Secret) Secret
+      </a>
+        <div class="collapse" id="secretKitten2">
+          <div class="card card-body">
+            <h4>Kitten!</h4>
+            <img
+              src="//adorbs-as-a-service.herokuapp.com/api/v1/720w/5200h"
+              alt="Another cat"
+            />
+            <br />
+            <a
+              href="https://github.com/justsml/adorbs-as-a-service"
+              target="_blank"
+              >View adorbs-as-a-service</a
+            >
+          </div>
       </section>
     </main>
 
